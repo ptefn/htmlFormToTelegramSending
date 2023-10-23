@@ -78,7 +78,12 @@ submit.onclick = function(evt){
         userName.value = phone.value = null;
         postData(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&parse_mode=html&text=${message}`)
         .then((message) => {
-          console.log(message); 
+          // console.log(message);
+            if(!message.ok){
+            alert('something wrong...(')
+          } else {
+            alert('с Вами свяжутся')
+          }; 
         });
         return(message);
     }
